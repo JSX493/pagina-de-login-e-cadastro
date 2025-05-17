@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --background-color: #362a4d; /* Roxo escuro para o fundo */
+    --card-bg-color: #523f78;    /* Roxo mais claro para o cartão de login */
+    --input-bg-color: #4b386a;   /* Roxo um pouco mais escuro para o input */
+    --text-color: #ffffff;      /* Branco para a maioria dos textos */
+    --placeholder-color: #cccccc;/* Cinza claro para o placeholder */
+    --button-bg-color: #7f5de4;  /* Roxo vibrante para o botão */
+    --link-color: #b091ff;       /* Roxo claro para links */
+    --shadow-color: rgba(0, 0, 0, 0.4); /* Cor da sombra */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--background-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: var(--text-color);
+    /* Para o efeito de "ruído" ou "estrelas" no fundo, você pode usar uma imagem sutil
+       ou múltiplos gradientes como este (exemplo simplificado): */
+    /*
+    background-image:
+        radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        radial-gradient(circle at 30% 80%, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        radial-gradient(circle at 70% 40%, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        radial-gradient(circle at 90% 10%, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 100px 100px;
+    */
+}
+
+.login-container {
+    background-color: var(--card-bg-color);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px var(--shadow-color);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    backdrop-filter: blur(5px); /* Para um efeito levemente fosco */
+    -webkit-backdrop-filter: blur(5px); /* Suporte para navegadores Webkit */
+}
+
+h2 {
+    font-size: 2.2em;
+    margin-bottom: 30px;
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 15px 45px 15px 15px; /* Mais padding à direita para o ícone */
+    border: none;
+    border-radius: 8px;
+    background-color: var(--input-bg-color);
+    color: var(--text-color);
+    font-size: 1em;
+    outline: none; /* Remove a borda de foco padrão */
+}
+
+.input-group input::placeholder {
+    color: var(--placeholder-color);
+    opacity: 0.8; /* Torna o placeholder um pouco mais transparente */
+}
+
+.input-group i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--placeholder-color); /* Cor dos ícones */
+    font-size: 1.1em;
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    font-size: 0.9em;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+}
+
+.remember-me input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 1.5px solid var(--placeholder-color);
+    border-radius: 4px;
+    margin-right: 8px;
+    cursor: pointer;
+    background-color: transparent;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.remember-me input[type="checkbox"]:checked {
+    background-color: var(--button-bg-color);
+    border-color: var(--button-bg-color);
+}
+
+.remember-me input[type="checkbox"]:checked::after {
+    content: '\2713'; /* Símbolo de checkmark */
+    color: var(--text-color);
+    font-size: 12px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.remember-me label {
+    cursor: pointer;
+    color: var(--placeholder-color);
+}
+
+.forgot-password {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.forgot-password:hover {
+    color: var(--text-color);
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--button-bg-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+button[type="submit"]:hover {
+    background-color: #6a4fd1; /* Um roxo um pouco mais escuro ao passar o mouse */
+    transform: translateY(-2px);
+}
+
+.register-link {
+    font-size: 0.95em;
+    color: var(--placeholder-color);
+}
+
+.register-link a {
+    color: var(--link-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.register-link a:hover {
+    color: var(--text-color);
+}
+
+/* Responsividade básica */
+@media (max-width: 500px) {
+    .login-container {
+        margin: 20px;
+        padding: 30px;
+    }
+
+    h2 {
+        font-size: 2em;
+        margin-bottom: 25px;
+    }
+
+    .input-group input {
+        padding: 12px 40px 12px 12px;
+    }
+
+    button[type="submit"] {
+        padding: 12px;
+        font-size: 1em;
+    }
+}
